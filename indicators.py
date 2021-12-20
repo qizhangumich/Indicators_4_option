@@ -18,8 +18,6 @@ import streamlit as st
 import requests
 import os
 import sys
-import subprocess
-
 # check if the library folder already exists, to avoid building everytime you load the pahe
 if not os.path.isdir("/tmp/ta-lib"):
 
@@ -35,30 +33,28 @@ if not os.path.isdir("/tmp/ta-lib"):
     # untar
     os.system("tar -zxvf ta-lib-0.4.0-src.tar.gz")
     os.chdir("/tmp/ta-lib")
-    os.system("ls -la /app/equity/")
     # build
     os.system("./configure --prefix=/home/appuser")
     os.system("make")
     # install
     os.system("make install")
+    # install python package
+    os.system(
+        'pip3 install --global-option=build_ext --global-option="-L/home/appuser/lib/" --global-option="-I/home/appuser/include/" ta-lib'
+    )
     # back to the cwd
     os.chdir(default_cwd)
+    print(os.getcwd())
     sys.stdout.flush()
 
 # add the library to our current environment
 from ctypes import *
 
-lib = CDLL("/home/appuser/lib/libta_lib.so.0.0.0")
+lib = CDLL("/home/appuser/lib/libta_lib.so.0")
 # import library
-try:
-    import talib
-except ImportError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "--global-option=build_ext", "--global-option=-L/home/appuser/lib/", "--global-option=-I/home/appuser/include/", "ta-lib"])
-finally:
-    import talib
+
 
 import talib as ta
-
 
 tickers = ["BEST","RLX","EDU","1810.HK","WDH","CAAS","VZ","DIS","KO","MOMO","PYPL","AAPL","TSLA","NVDA","FB"]
 names =["百世","雾芯","新东方","小米","水滴","汽车系统","Verizon","迪士尼","可乐","陌陌","Paypal","苹果","特斯拉","英伟达","脸书"]
