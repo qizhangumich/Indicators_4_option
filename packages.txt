@@ -2,4 +2,3 @@ freeglut3-dev
 libgtk2.0-dev
 gcc
 make
-#https://docs.streamlit.io/streamlit-cloud/get-started/deploy-an-app/app-dependencies
