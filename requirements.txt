@@ -1,0 +1,5 @@
+matplotlib==3.3.4
+pandas==1.2.4
+streamlit==1.2.0
+TA_Lib==0.4.19
+yfinance==0.1.63
