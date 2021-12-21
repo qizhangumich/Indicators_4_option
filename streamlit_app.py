@@ -96,7 +96,7 @@ fig, (ax0,ax1,ax2,ax3,ax4,ax5) = plt.subplots(nrows=6)
 #fig.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
 #https://matplotlib.org/stable/tutorials/intermediate/tight_layout_guide.html
 #fig.tight_layout()
-fig.set_size_inches(40, 40)
+fig.set_size_inches(30, 20)
 
 ax0.plot(df.Close,label="close",linewidth=2,color="black")
 ax0.plot(df.Up,label="up boundary")
