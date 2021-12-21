@@ -1,1 +1,0 @@
-# Indicators_4_option
