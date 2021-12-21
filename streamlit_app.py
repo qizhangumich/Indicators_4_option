@@ -43,8 +43,8 @@ lib = CDLL("/home/appuser/lib/libta_lib.so.0")
 # import library
 import talib as ta
 
-tickers = ["BEST","RLX","EDU","1810.HK","WDH","CAAS","VZ","DIS","KO","MOMO","PYPL","AAPL","TSLA","NVDA","FB"]
-names =["百世","雾芯","新东方","小米","水滴","汽车系统","Verizon","迪士尼","可乐","陌陌","Paypal","苹果","特斯拉","英伟达","脸书"]
+tickers = ["MSFT","GOOGL","PYPL","AAPL","TSLA","NVDA","FB"]
+names =["微软","Google","Paypal","苹果","特斯拉","英伟达","脸书"]
 
 
 ticker = st.sidebar.selectbox(
@@ -56,7 +56,7 @@ name = names[tickers.index(ticker)]
 st.title(name)
 
 
-start = dt.datetime(2021, 1, 1) 
+start = dt.datetime(2021, 6, 1) 
 end = dt.date.today()
 
 
@@ -96,7 +96,7 @@ fig, (ax0,ax1,ax2,ax3,ax4,ax5) = plt.subplots(nrows=6)
 #fig.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
 #https://matplotlib.org/stable/tutorials/intermediate/tight_layout_guide.html
 #fig.tight_layout()
-fig.set_size_inches(20, 30)
+fig.set_size_inches(40, 40)
 
 ax0.plot(df.Close,label="close",linewidth=2,color="black")
 ax0.plot(df.Up,label="up boundary")
