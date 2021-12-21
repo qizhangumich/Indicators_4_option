@@ -13,7 +13,7 @@ if not os.path.isdir("/tmp/ta-lib"):
     # Download ta-lib to disk
     with open("/tmp/ta-lib-0.4.0-src.tar.gz", "wb") as file:
         response = requests.get(
-            "http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz"
+            "https://sourceforge.net/projects/ta-lib/files/ta-lib/0.4.0/ta-lib-0.4.0-src.tar.gz"
         )
         file.write(response.content)
     # get our current dir, to configure it back again. Just house keeping
